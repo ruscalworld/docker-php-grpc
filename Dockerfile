@@ -1,4 +1,4 @@
-ARG PHP_VERSION = '7.4'
+ARG PHP_VERSION='7.4'
 FROM php:${PHP_VERSION}-fpm-alpine
 
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \

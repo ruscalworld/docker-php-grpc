@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ruscalworld/docker-php-grpc
+          images: ruscalworld/php-grpc
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -35,3 +35,4 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ matrix.php-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: PHP_VERSION=${{ matrix.php-version }}
