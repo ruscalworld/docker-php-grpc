@@ -2,7 +2,7 @@ ARG PHP_VERSION='7.4'
 ARG DISTRIBUTION='bullseye'
 FROM php:${PHP_VERSION}-fpm-${DISTRIBUTION}
 
-ADD scripts .
+ADD scripts scripts
 ARG DISTRIBUTION
 
 RUN ./scripts/${DISTRIBUTION}-packages.sh
