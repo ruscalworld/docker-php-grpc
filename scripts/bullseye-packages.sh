@@ -1,2 +1,2 @@
 apt update
-apt install autoconf gcc g++ make zlib1g-dev
+apt install -y autoconf gcc g++ make zlib1g-dev
