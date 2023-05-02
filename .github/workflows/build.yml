@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ '8.2' ]
+        php-version: [ '7.4', '8.2' ]
+        distribution: [ 'alpine', 'bullseye' ]
 
     steps:
       - name: Checkout
@@ -30,7 +31,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/ruscalworld/docker-php-grpc
-          tags: ${{ matrix.php-version }}
+          tags: ${{ matrix.php-version }}-${{ matrix.distribution }}
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -38,4 +39,6 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: PHP_VERSION=${{ matrix.php-version }}
+          build-args:
+            PHP_VERSION: ${{ matrix.php-version }}
+            DISTRIBUTION: ${{ matrix.distribution }}
