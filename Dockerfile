@@ -3,7 +3,8 @@ ARG DISTRIBUTION='bullseye'
 FROM php:${PHP_VERSION}-fpm-${DISTRIBUTION}
 
 ADD scripts .
+ARG DISTRIBUTION
 
-RUN ./scripts/$DISTRIBUTION-packages.sh
+RUN ./scripts/${DISTRIBUTION}-packages.sh
 RUN pecl install grpc \
     && docker-php-ext-enable grpc
