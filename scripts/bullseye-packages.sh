@@ -1,2 +1,2 @@
 apt update
-apt install autoconf gcc g++ make zlib-dev linux-headers
+apt install autoconf gcc g++ make zlib-dev
