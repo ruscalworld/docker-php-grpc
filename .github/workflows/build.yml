@@ -14,14 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: [ '8.1', '8.2', '8.3' ]
+        php-version: [ '8.2', '8.3', '8.4', '8.5' ]
         distribution: [ 'alpine', 'trixie' ]
-        include:
-          # PHP 7.4 images are not published for Debian releases newer than bullseye
-          - php-version: '7.4'
-            distribution: 'alpine'
-          - php-version: '7.4'
-            distribution: 'bullseye'
 
     steps:
       - name: Checkout
