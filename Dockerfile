@@ -1,5 +1,5 @@
-ARG PHP_VERSION='7.4'
-ARG DISTRIBUTION='bullseye'
+ARG PHP_VERSION='8.5'
+ARG DISTRIBUTION='trixie'
 FROM php:${PHP_VERSION}-fpm-${DISTRIBUTION}
 
 ADD scripts scripts
